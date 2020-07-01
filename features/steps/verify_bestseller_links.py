@@ -22,7 +22,7 @@ def verify_best_seller(context, expected_text):
 @then("Count Best Sellers menu items")
 def count_best_seller_link(context):
     context.driver.menu_items_list = context.driver.find_elements(*MENU_ITEMS_LIST)
-    assert len(context.driver.menu_items_list) == 5
+    assert len(context.driver.menu_items_list) == 5, f"Expected 8, but got {len(context.driver.menu_items_list)} menu list items"
 
 
 @when("Click on each top menu item and verify page")
@@ -36,4 +36,3 @@ def click_menu_item(context):
         assert expected_text in actual_text, f"Expected {expected_text}, but got {actual_text}"
         context.driver.back()
         counter += 1
-
