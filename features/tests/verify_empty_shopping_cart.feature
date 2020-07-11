@@ -5,4 +5,4 @@ Feature: User can click on the Shopping cart icon and verifies it is empty
 
     Given Open Amazon page
     When Click on cart icon
-    Then Empty shopping cart label shown
+    Then Verify Your Amazon Cart is empty text present

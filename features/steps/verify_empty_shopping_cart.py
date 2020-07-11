@@ -1,17 +1,11 @@
-from selenium.webdriver.common.by import By
-from behave import given, then, when
-from time import sleep
-
-SHOPPING_ICON = (By.XPATH, "//a[@id='nav-cart']")
-CART_EMPTY = (By.CSS_SELECTOR, ".sc-your-amazon-cart-is-empty h2")
+from behave import then, when
 
 
 @when('Click on cart icon')
 def click_cart_icon(context):
-    context.driver.find_element(*SHOPPING_ICON).click()
-    sleep(2)
+    context.app.shopping_cart_page.click_cart_icon()
 
 
-@then('Empty shopping cart label shown')
-def empty_shopping_cart(context):
-    assert 'Your Amazon Cart is empty' in context.driver.find_element(*CART_EMPTY).text
+@then('Verify {expected_text} text present')
+def empty_shopping_cart(context, expected_text):
+    context.app.shopping_cart_page.verify_cart(expected_text)

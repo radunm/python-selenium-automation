@@ -4,4 +4,4 @@ Feature: Logged out user sees Sign in page when clicking Orders
   Scenario: Verify Sign in
     Given Open Amazon main page
     When Click Orders
-    Then Sign in page opened
+    Then Sign-In page opened
